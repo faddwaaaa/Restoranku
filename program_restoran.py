@@ -1,3 +1,4 @@
+
 # RESTORANKU
 
 print("======================================")
@@ -85,14 +86,21 @@ subtotal = sum(total_harga)
 total_porsi = sum(jumlah_pesan)
 
 if total_porsi >= 3:
-    diskon = subtotal * 10 / 100
+    diskon = int(subtotal * 10 / 100)
 else:
     diskon = 0
 
 # Menghitung pajak dan total pembayaran
 setelah_diskon = subtotal - diskon
-pajak = setelah_diskon * 10 / 100
-total_bayar = setelah_diskon + pajak
+pajak = int(setelah_diskon * 10 / 100)
+
+total_sementara = setelah_diskon + pajak
+
+# Membulatkan total pembayaran ke Rp500 terdekat
+total_bayar = round(total_sementara / 500) * 500
+
+# Menyesuaikan pajak dengan total pembayaran
+pajak = total_bayar - setelah_diskon
 
 print("Subtotal       : Rp", subtotal)
 print("Total Porsi    : ", total_porsi)
