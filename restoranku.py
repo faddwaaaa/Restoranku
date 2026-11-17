@@ -81,31 +81,25 @@ print("------------------------------------------------")
 
 # Menghitung total seluruh pesanan
 subtotal = sum(total_harga)
-
-# Diskon 10% jika jumlah seluruh porsi minimal 3
 total_porsi = sum(jumlah_pesan)
 
+# Diskon 10% jika jumlah porsi minimal 3
 if total_porsi >= 3:
     diskon = int(subtotal * 10 / 100)
 else:
     diskon = 0
 
-# Menghitung pajak dan total pembayaran
-setelah_diskon = subtotal - diskon
-pajak = int(setelah_diskon * 10 / 100)
+# Menghitung pajak 10%
+pajak = int(subtotal * 10 / 100)
 
-total_sementara = setelah_diskon + pajak
+# Mengurangi subtotal dengan diskon dan pajak
+total_bayar = subtotal - diskon - pajak
 
-# Membulatkan total pembayaran ke Rp500 terdekat
-total_bayar = round(total_sementara / 500) * 500
-
-# Menyesuaikan pajak dengan total pembayaran
-pajak = total_bayar - setelah_diskon
-
+# Menampilkan rincian pembayaran
 print("Subtotal       : Rp", subtotal)
 print("Total Porsi    : ", total_porsi)
 print("Diskon         : Rp", diskon)
-print("Pajak 10%      : Rp", pajak)
+print("Pajak          : Rp", pajak)
 print("Total Bayar    : Rp", total_bayar)
 print("================================================")
 
